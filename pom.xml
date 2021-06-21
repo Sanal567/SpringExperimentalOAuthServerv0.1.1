@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.microsoft.java</groupId>
+    <artifactId>OAutj</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Spring_Boot_Rest_OAuth2 root module</name>
+    <description>Spring_Boot_Rest_OAuth2</description>
+
+    <properties>
+        <java.version>11</java.version>
+        <project.build.defaultEncoding>UTF-8</project.build.defaultEncoding>
+        <maven.compiler.release>11</maven.compiler.release>
+    </properties>
+
+    <modules>
+        <module>authorizationserver</module>
+        <module>resourceserver</module>
+        <module>client</module>
+    </modules>
+
+</project>
