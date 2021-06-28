@@ -1,9 +1,12 @@
 package sample.config;
 
+import java.util.UUID;
+
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -20,9 +23,8 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
 import org.springframework.security.web.SecurityFilterChain;
-import sample.jose.Jwks;
 
-import java.util.UUID;
+import sample.jose.Jwks;
 
 @Configuration(proxyBeanMethods = false)
 public class AuthorizationServerConfig {
@@ -37,8 +39,7 @@ public class AuthorizationServerConfig {
     @Bean
     public RegisteredClientRepository registeredClientRepository() {
         RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("messaging-client")
-                .clientSecret("{noop}secret")
+                .clientId("messaging-client").clientSecret("{noop}secret")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
@@ -69,7 +70,7 @@ public class AuthorizationServerConfig {
     @Bean
     public ProviderSettings providerSettings() {
         return new ProviderSettings().issuer("http://localhost:9000");
-        //http://auth-server:9000
+        // http://auth-server:9000
     }
 
 }
